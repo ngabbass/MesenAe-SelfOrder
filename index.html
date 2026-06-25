@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+  <!-- Google Fonts Preconnect & Load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('mesenae_darkMode') || localStorage.getItem('mesenae-theme');
+        if (savedTheme === 'dark' || savedTheme === 'true' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  
+  <!-- Primary Meta Tags -->
+  <title>MesenAe - Self Order</title>
+  <meta name="description"
+    content="Self-order menu digital MesenAe. Scan QR, pilih menu, dan pesan langsung dari meja Anda." />
+  <meta name="keywords" content="self order, menu digital, QR order, pesan makanan, MesenAe" />
+  <meta name="author" content="Ahmad Basith" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#3B82F6" />
+  
+  <!-- Favicons & PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="msapplication-TileImage" content="/mstile-150x150.png" />
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MesenAe - Self Order" />
+  <meta property="og:description" content="Self-order menu digital MesenAe. Scan QR, pilih menu, dan pesan langsung dari meja Anda." />
+  <meta property="og:image" content="/MesenAe.png" />
+  <meta property="og:image:width" content="600" />
+  <meta property="og:image:height" content="600" />
+  <meta property="og:site_name" content="MesenAe" />
+  <meta property="og:locale" content="id_ID" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:title" content="MesenAe - Self Order" />
+  <meta property="twitter:description" content="Self-order menu digital MesenAe. Scan QR, pilih menu, dan pesan langsung dari meja Anda." />
+  <meta property="twitter:image" content="/MesenAe.png" />
+  
+  <!-- Apple PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="MesenAe" />
+  
+  <!-- Additional SEO / PWA -->
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="MesenAe" />
+  <meta name="msapplication-TileColor" content="#3B82F6" />
+  <meta name="msapplication-config" content="none" />
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MesenAe",
+    "applicationCategory": "FoodEstablishment",
+    "operatingSystem": "Web Browser, Android, iOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "IDR"
+    },
+    "description": "Self-order menu digital MesenAe. Scan QR, pilih menu, dan pesan langsung dari meja Anda.",
+    "image": "/MesenAe.png",
+    "author": {
+      "@type": "Person",
+      "name": "Ahmad Basith"
+    },
+    "inLanguage": "id-ID",
+    "featureList": [
+      "Self Order QR",
+      "Menu Digital",
+      "Pemesanan Real-time",
+      "Riwayat Pesanan"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

@@ -1,0 +1,430 @@
+@layer base {
+  .theme-neobrutalism {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 12%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 94%;
+    --secondary-foreground: 215 25% 20%;
+
+    --muted: 215 15% 94%;
+    --muted-foreground: 215 10% 46%;
+
+    --accent: 172 66% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 215 20% 90%;
+    --input: 215 20% 90%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .theme-neobrutalism.dark,
+  .dark .theme-neobrutalism {
+    --background: 221 24% 9%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 18% 14%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 18% 14%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 172 66% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 220 15% 24%;
+    --input: 220 15% 24%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 220 18% 14%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 20%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Custom Neobrutalism Utilities - Bold & Distinct */
+  .theme-neobrutalism .glass-panel {
+    @apply bg-white dark:bg-slate-900 border-2 border-black dark:border-slate-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#374151];
+  }
+  .theme-neobrutalism .glass-panel-heavy {
+    @apply bg-white dark:bg-slate-900 border-4 border-black dark:border-slate-700 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_#374151];
+  }
+  .theme-neobrutalism .glass-card {
+    @apply bg-white dark:bg-slate-900 border-2 border-black dark:border-slate-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#374151];
+  }
+  .theme-neobrutalism .glass-button {
+    @apply bg-[#ffc700] dark:bg-[#ffc700] text-black border-2 border-black dark:border-slate-700 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_#374151] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_#374151] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all duration-150 font-black uppercase text-xs tracking-wider;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+  }
+
+  html,
+  body {
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  /* PWA safe area */
+  html {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+}
+
+@layer utilities {
+  /* Customer-scoped theme overrides: make existing blue-* utilities follow --primary */
+  .theme-neobrutalism .customer-theme {
+    --background: 45 25% 95%; /* Clean Sand/Cream Alabaster */
+    --foreground: 0 0% 0%;     /* Rich Pitch Black */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --primary: 43 100% 50%;     /* Vibrant yellow-amber #FFB800 */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 45 10% 90%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 45 10% 90%;
+    --muted-foreground: 0 0% 30%;
+    --accent: 43 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 43 100% 50%;
+    --radius: 0.5rem;          /* Crisp modern neobrutalist rounded edge */
+  }
+
+  .dark .theme-neobrutalism .customer-theme,
+  .theme-neobrutalism.dark .customer-theme {
+    --background: 221 24% 9%;    /* Elegant deep dark slate */
+    --foreground: 0 0% 100%;   /* Clean Pure White */
+    --card: 220 18% 14%;          /* Premium Charcoal Card */
+    --card-foreground: 0 0% 100%;
+    --primary: 43 100% 50%;     /* Rich Yellow-Amber */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 0 0% 85%;
+    --accent: 43 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --border: 215 16% 27%;
+    --input: 215 16% 27%;
+    --ring: 43 100% 50%;
+  }
+
+  .theme-neobrutalism .customer-theme {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    background-image: 
+      radial-gradient(rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  
+  .dark .theme-neobrutalism .customer-theme,
+  .theme-neobrutalism.dark .customer-theme {
+    background-image: 
+      radial-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
+  }
+
+  .theme-neobrutalism .customer-theme .text-blue-600 { color: hsl(var(--primary)) !important; }
+  .theme-neobrutalism .customer-theme .text-blue-700 { color: hsl(var(--primary)) !important; }
+  .theme-neobrutalism .customer-theme .text-blue-400 { color: hsl(var(--primary) / 0.85) !important; }
+
+  /* backgrounds */
+  .theme-neobrutalism .customer-theme .bg-blue-600 { background-color: hsl(var(--primary)) !important; }
+  .theme-neobrutalism .customer-theme .bg-blue-700 { background-color: hsl(var(--primary)) !important; }
+  .theme-neobrutalism .customer-theme .bg-blue-50 { background-color: hsl(var(--primary) / 0.08) !important; }
+  .theme-neobrutalism .customer-theme .bg-blue-100 { background-color: hsl(var(--primary) / 0.12) !important; }
+  .theme-neobrutalism .customer-theme .bg-blue-500\/10 { background-color: hsl(var(--primary) / 0.1) !important; }
+
+  /* borders and rings */
+  .theme-neobrutalism .customer-theme .border-blue-500 { border-color: hsl(var(--primary)) !important; }
+  .theme-neobrutalism .customer-theme .ring-blue-500\/20 { box-shadow: 0 0 0 4px hsl(var(--primary) / 0.12) !important; }
+
+  /* shadows */
+  .theme-neobrutalism .customer-theme .shadow-blue-600\/20 { box-shadow: 0 8px 30px hsl(var(--primary) / 0.18) !important; }
+
+  /* hover helpers: use a slight brightness change to emulate darker hover */
+  .theme-neobrutalism .customer-theme .hover\:bg-blue-700:hover { filter: brightness(0.88) !important; }
+  .theme-neobrutalism .customer-theme .hover\:text-blue-600:hover { color: hsl(var(--primary)) !important; }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    background-color: var(--muted-foreground);
+  }
+
+  /* Safe area */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+
+  /* Zigzag edge for receipt */
+  .zigzag-bg {
+    background: linear-gradient(-45deg, #f3f4f6 8px, transparent 0), linear-gradient(45deg, #f3f4f6 8px, transparent 0);
+    background-position: left-bottom;
+    background-repeat: repeat-x;
+    background-size: 16px 16px;
+  }
+
+  .dark .zigzag-bg-dark {
+    background: linear-gradient(-45deg, #030712 8px, transparent 0), linear-gradient(45deg, #030712 8px, transparent 0);
+    background-position: left-bottom;
+    background-repeat: repeat-x;
+    background-size: 16px 16px;
+  }
+
+  /* Animations */
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+
+  @keyframes bounce-slow {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s linear infinite;
+  }
+
+  /* Hover & Active Neobrutalist style */
+  .theme-neobrutalism .pro-card {
+    @apply border-2 border-black dark:border-slate-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_#374151] transition-all duration-200 ease-out;
+  }
+  .theme-neobrutalism .pro-card:hover {
+    @apply -translate-y-[2px] -translate-x-[2px] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_#374151];
+  }
+  .theme-neobrutalism .pro-card:active {
+    @apply translate-y-[2px] translate-x-[2px] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_#374151];
+  }
+  
+  .custom-scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+  }
+  .animate-shake {
+    animation: shake 0.3s infinite;
+  }
+
+  /* Animasi Muncul Logo */
+  .logo-container {
+    animation: scale-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  
+  /* Animasi Muncul Teks (Staggered) */
+  .title-text {
+    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  
+  .subtitle-text {
+    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  /* Animasi Loading Dots */
+  .loading-dot {
+    animation: dot-pulse 1s infinite linear alternate;
+  }
+  .loading-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .loading-dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes scale-in {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes dot-pulse {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+  }
+}
+
+/* Custom overrides for Sonner toaster to ensure perfect centering and responsiveness on all screens */
+[data-sonner-toaster] {
+  width: 100% !important;
+  max-width: 280px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+[data-sonner-toaster][data-x-position="center"] {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* Ensure toast items inside are centered and thin */
+.group.toast {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* PromoBanner typography & responsive styling fallback for older viewports (e.g. iOS 15 / iPhone 7) */
+@supports not (container-type: inline-size) {
+  :root {
+    --banner-cw: calc(100vw - 32px);
+  }
+  @media (min-width: 768px) {
+    :root {
+      --banner-cw: min(540px, calc(100vw - 32px));
+    }
+  }
+
+  .promo-heading {
+    font-size: calc(var(--banner-cw) * 0.022) !important;
+    padding: calc(var(--banner-cw) * 0.005) calc(var(--banner-cw) * 0.015) !important;
+    white-space: nowrap !important;
+  }
+
+  .promo-title {
+    font-size: calc(var(--banner-cw) * 0.045) !important;
+    white-space: nowrap !important;
+  }
+
+  .promo-desc {
+    font-size: calc(var(--banner-cw) * 0.028) !important;
+  }
+
+  .promo-btn {
+    font-size: calc(var(--banner-cw) * 0.024) !important;
+    padding: calc(var(--banner-cw) * 0.008) calc(var(--banner-cw) * 0.025) !important;
+    white-space: nowrap !important;
+  }
+}
